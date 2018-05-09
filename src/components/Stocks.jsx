@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
+import '../App.css';
 
 class Header extends Component {
   constructor(props) {
@@ -12,18 +13,23 @@ class Header extends Component {
       <div>
         <section className="section">
           <div className="container">
-            <h1 className="title">Your Hand Picked Stocks:</h1>
-            {Object.entries(stocks).map((key, index) => {
-              return (
-                <ul key={index}>
-                  <li>
-                    <h2 className="subtitle">
-                      {key[1].quote.companyName}: {key[1].quote.symbol}
-                    </h2>
-                  </li>
-                </ul>
-              );
-            })}
+            <h1 className="title has-text-centered">
+              Your Hand Picked Stocks:
+            </h1>
+            <div className="tile is-ancestor">
+              <div className="tile is-12">
+                {Object.entries(stocks).map((key, index) => {
+                  return (
+                    <div className="tile is-parent">
+                      <a className="tile is-child notification is-info box">
+                        <p className="subtitle">{key[1].quote.companyName}:</p>
+                        <p className="subtitle">{key[1].quote.symbol}</p>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
       </div>

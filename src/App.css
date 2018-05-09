@@ -5,3 +5,18 @@
 .title {
   font-size: 3em;
 }
+
+.box {
+  -webkit-transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1.01);
+  -moz-transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1.01);
+  transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1.01);
+}
+
+.box:hover {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
