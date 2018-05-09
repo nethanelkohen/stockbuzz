@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import logo from '../assets/lightning.png';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -9,7 +10,10 @@ class Header extends Component {
         <div className="hero-body">
           <div className="container has-text-centered">
             <img src={logo} alt="Logo" />
-            <h1 className="title has-text-white ">stockbuzz</h1>
+            <Link to={'/'}>
+              <h1 className="title has-text-white">stockbuzz</h1>
+            </Link>
+
             <img src={logo} alt="Logo" />
           </div>
         </div>

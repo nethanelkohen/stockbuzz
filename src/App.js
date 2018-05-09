@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Stocks from './components/Stocks';
+import IndStock from './components/Indstock';
 import './App.css';
 import 'bulma/css/bulma.css';
 import Spinner from 'react-spinkit';
+import { Link, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -29,22 +31,20 @@ class App extends Component {
     const stock = this.state.stockName;
     return (
       <div>
-        {this.state.loading ? (
-          <Spinner className="spinner" name="ball-spin-fade-loader" />
-        ) : (
-          <div>
-            <Header />
-            <Stocks data={stock} />
-            <Footer />
-          </div>
-        )}
-
-        {/* {this.state.loading ? (
-          <Spinner className="spinner" name="ball-spin-fade-loader" />
-        ) : (
-          <Stocks data={stock} />
-        )}
-        <Footer /> */}
+        <Header />
+        <Switch>
+          {this.state.loading ? (
+            <Spinner className="spinner" name="ball-spin-fade-loader" />
+          ) : (
+            <Route
+              exact
+              path="/"
+              render={props => <Stocks {...props} data={stock} />}
+            />
+          )}
+          <Route exact path="/indepth/:id" component={IndStock} />
+        </Switch>
+        {/* <Footer /> */}
       </div>
     );
   }
