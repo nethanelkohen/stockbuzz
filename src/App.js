@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Stocks from './components/Stocks';
 import './App.css';
 import 'bulma/css/bulma.css';
@@ -21,21 +22,29 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ stockName: data, loading: false });
-        // console.log(this.state);
       });
   }
 
   render() {
     const stock = this.state.stockName;
-    const loading = this.state.loading;
     return (
       <div>
-        <Header />
-        {loading ? (
+        {this.state.loading ? (
+          <Spinner className="spinner" name="ball-spin-fade-loader" />
+        ) : (
+          <div>
+            <Header />
+            <Stocks data={stock} />
+            <Footer />
+          </div>
+        )}
+
+        {/* {this.state.loading ? (
           <Spinner className="spinner" name="ball-spin-fade-loader" />
         ) : (
           <Stocks data={stock} />
         )}
+        <Footer /> */}
       </div>
     );
   }
