@@ -37,7 +37,7 @@ class Stocks extends Component {
           </div>
         </section>
 
-        <Route
+        {/* <Route
           path={`/indepth/:id`}
           render={({ match }) => {
             console.log(match);
@@ -47,7 +47,7 @@ class Stocks extends Component {
               </div>
             );
           }}
-        />
+        /> */}
       </div>
     );
   }

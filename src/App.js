@@ -42,7 +42,11 @@ class App extends Component {
               render={props => <Stocks {...props} data={stock} />}
             />
           )}
-          <Route exact path="/indepth/:id" component={IndStock} />
+          <Route
+            exact
+            path="/indepth/:id"
+            render={props => <IndStock {...props} data={stock} />}
+          />
         </Switch>
         {/* <Footer /> */}
       </div>
