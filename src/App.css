@@ -20,3 +20,8 @@
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
+
+.spinner {
+  left: 50% !important;
+  top: 100px !important;
+}

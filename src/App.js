@@ -3,12 +3,14 @@ import Header from './components/Header';
 import Stocks from './components/Stocks';
 import './App.css';
 import 'bulma/css/bulma.css';
+import Spinner from 'react-spinkit';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      stockName: []
+      stockName: [],
+      loading: true
     };
   }
 
@@ -18,19 +20,22 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(data => {
-        this.setState({ stockName: data });
+        this.setState({ stockName: data, loading: false });
         // console.log(this.state);
       });
   }
 
   render() {
-    let stock = this.state.stockName;
-    // console.log(stock);
-
+    const stock = this.state.stockName;
+    const loading = this.state.loading;
     return (
       <div>
         <Header />
-        <Stocks data={stock} />
+        {loading ? (
+          <Spinner className="spinner" name="ball-spin-fade-loader" />
+        ) : (
+          <Stocks data={stock} />
+        )}
       </div>
     );
   }

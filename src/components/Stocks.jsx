@@ -13,9 +13,7 @@ class Header extends Component {
       <div>
         <section className="section">
           <div className="container">
-            <h1 className="title has-text-centered">
-              Your Hand Picked Stocks:
-            </h1>
+            <h1 className="title has-text-centered">Your Stocks:</h1>
             <div className="tile is-ancestor">
               <div className="tile is-12">
                 {Object.entries(stocks).map((key, index) => {
