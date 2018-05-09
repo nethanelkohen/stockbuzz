@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import Stocks from './components/Stocks';
 import './App.css';
 import 'bulma/css/bulma.css';
 
@@ -13,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     fetch(
-      'https://api.iextrading.com/1.0/stock/market/batch?symbols=baba,amzn,nvda,googl,ebay&types=quote,chart&range=1m'
+      'https://api.iextrading.com/1.0/stock/market/batch?symbols=baba,googl,amzn,ebay,nvda&types=quote,chart&range=1m'
     )
       .then(response => response.json())
       .then(data => {
@@ -24,24 +25,12 @@ class App extends Component {
 
   render() {
     let stock = this.state.stockName;
-    console.log(stock);
+    // console.log(stock);
 
     return (
       <div>
         <Header />
-        <div>
-          {Object.entries(stock).map((key, index) => {
-            return (
-              <div key={index}>
-                <ul>
-                  <li>
-                    {key[1].quote.companyName}: {key[1].quote.symbol}
-                  </li>
-                </ul>
-              </div>
-            );
-          })}
-        </div>
+        <Stocks data={stock} />
       </div>
     );
   }
