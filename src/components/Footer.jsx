@@ -11,7 +11,7 @@ class Footer extends Component {
               <strong>
                 Built by
                 <a href="https://github.com/nethanelkohen"> Nethanel Kohen </a>
-                for Agency Within.
+                for Agency Within
               </strong>
             </p>
           </div>

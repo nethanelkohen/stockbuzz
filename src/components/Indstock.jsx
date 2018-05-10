@@ -8,6 +8,7 @@ import ReactChartkick, {
   ColumnChart
 } from 'react-chartkick';
 import Chart from 'chart.js';
+import Footer from './Footer';
 
 ReactChartkick.addAdapter(Chart);
 
@@ -45,7 +46,7 @@ class Stocks extends Component {
     let highArray = [];
     // let lowArray = [];
     for (let i = 0; i < newKey.length; i++) {
-      const high = newKey[i].high.toFixed(2);
+      const high = newKey[i].high.toFixed(0);
       const date = newKey[i].label;
       // const low = newKey[i].low;
       const highData = {
@@ -160,7 +161,6 @@ class Stocks extends Component {
                       <h2 className="subtitle">
                         Closing Price: {key[1].quote.close}
                       </h2>
-                      <p>Charts only display business days</p>
                     </div>
                   </div>
                 </section>
@@ -171,57 +171,59 @@ class Stocks extends Component {
         })}
         <section class="section has-text-centered">
           <div class="container">
-            <h1 class="title">Volume per business day over the last week</h1>
+            <h1 class="title">Volume</h1>
             <h2 class="subtitle">
               <AreaChart
                 prefix="$"
                 thousands=","
                 data={graphData}
                 messages={{ empty: 'No data' }}
+                label="Volume"
               />
             </h2>
           </div>
         </section>
         <section class="section has-text-centered">
           <div class="container">
-            <h1 class="title">Closing price over the last week</h1>
+            <h1 class="title">Closing Price </h1>
             <h2 class="subtitle">
               <ColumnChart
                 data={closeData}
                 messages={{ empty: 'No data' }}
                 prefix="$"
                 thousands=","
+                label="Price"
               />
             </h2>
           </div>
         </section>
         <section class="section has-text-centered">
           <div class="container">
-            <h1 class="title">Percent change over the last week</h1>
+            <h1 class="title">Percent Change</h1>
             <h2 class="subtitle">
               <BarChart
                 data={percentData}
-                colors={['#b00', '#666']}
-                // legend={true}
                 suffix="%"
                 messages={{ empty: 'No data' }}
+                label="Percent Change"
               />
             </h2>
           </div>
         </section>
         <section class="section has-text-centered">
           <div class="container">
-            <h1 class="title">High over the week</h1>
+            <h1 class="title">High Price</h1>
             <h2 class="subtitle">
               <LineChart
                 data={highData}
                 messages={{ empty: 'No data' }}
                 prefix="$"
-                decimal="."
+                label="Price"
               />
             </h2>
           </div>
         </section>
+        <Footer />
       </div>
     );
   }

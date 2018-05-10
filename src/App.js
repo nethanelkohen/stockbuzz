@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Stocks from './components/Stocks';
 import IndStock from './components/Indstock';
 import './App.css';
@@ -48,7 +48,6 @@ class App extends Component {
             render={props => <IndStock {...props} data={stock} />}
           />
         </Switch>
-        {/* <Footer /> */}
       </div>
     );
   }
