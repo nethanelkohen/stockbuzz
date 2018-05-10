@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import '../App.css';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Stocks extends Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class Stocks extends Component {
 
   render() {
     let stocks = this.props.data;
-    let match = this.props.match;
     console.log(this.props);
     return (
       <div>
@@ -36,18 +35,6 @@ class Stocks extends Component {
             </div>
           </div>
         </section>
-
-        {/* <Route
-          path={`/indepth/:id`}
-          render={({ match }) => {
-            console.log(match);
-            return (
-              <div>
-                <h3>/hello</h3>
-              </div>
-            );
-          }}
-        /> */}
       </div>
     );
   }
