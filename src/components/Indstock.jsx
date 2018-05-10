@@ -30,7 +30,7 @@ class Stocks extends Component {
     entries.map(key => {
       console.log(key);
       if (match.params.id === key[0]) {
-        let newKey = key[1].chart;
+        let newKey = key[1].chart.slice(-7);
         this.renderPercent(newKey);
         this.renderVolume(newKey);
         this.renderClose(newKey);
@@ -42,13 +42,11 @@ class Stocks extends Component {
   }
 
   renderHigh = newKey => {
-    const sevenDay = newKey.slice(-7);
-
     let highArray = [];
     // let lowArray = [];
-    for (let i = 0; i < sevenDay.length; i++) {
-      const high = sevenDay[i].high.toFixed(2);
-      const date = sevenDay[i].label;
+    for (let i = 0; i < newKey.length; i++) {
+      const high = newKey[i].high.toFixed(2);
+      const date = newKey[i].label;
       // const low = newKey[i].low;
       const highData = {
         [date]: high
@@ -68,12 +66,11 @@ class Stocks extends Component {
   };
 
   renderLow = newKey => {
-    const sevenDay = newKey.slice(-7);
     let lowArray = [];
     // let lowArray = [];
-    for (let i = 0; i < sevenDay.length; i++) {
-      const low = sevenDay[i].low.toFixed(2);
-      const date = sevenDay[i].label;
+    for (let i = 0; i < newKey.length; i++) {
+      const low = newKey[i].low.toFixed(2);
+      const date = newKey[i].label;
       // const low = newKey[i].low;
       const lowData = {
         [date]: low
@@ -125,7 +122,7 @@ class Stocks extends Component {
   };
 
   renderPercent = newKey => {
-    const sevenDay = newKey.slice(-7);
+    const sevenDay = newKey;
     let percentArray = [];
     for (let i = 0; i < sevenDay.length; i++) {
       const percentChange = sevenDay[i].changePercent.toFixed(2);
@@ -156,50 +153,75 @@ class Stocks extends Component {
           if (match.params.id === key[0]) {
             return (
               <div key={index}>
-                <h1>{key[1].quote.companyName}</h1>
-                <h1>Closing Price: {key[1].quote.close}</h1>
+                <section className="hero">
+                  <div className="hero-body">
+                    <div className="container ">
+                      <h1 className="title">{key[1].quote.companyName}</h1>
+                      <h2 className="subtitle">
+                        Closing Price: {key[1].quote.close}
+                      </h2>
+                      <p>Charts only display business days</p>
+                    </div>
+                  </div>
+                </section>
               </div>
             );
           }
           return null;
         })}
-        <h1>Closing price over the last month</h1>
-        <LineChart
-          data={closeData}
-          messages={{ empty: 'No data' }}
-          prefix="$"
-          thousands=","
-        />
-        <h1>Percent change over the last week</h1>
-        <BarChart
-          data={percentData}
-          colors={['#b00', '#666']}
-          // legend={true}
-          suffix="%"
-          messages={{ empty: 'No data' }}
-        />
-        <h1>High over the week</h1>
-        <ColumnChart
-          data={highData}
-          messages={{ empty: 'No data' }}
-          prefix="$"
-          decimal="."
-        />
-        <h1> Low over the week</h1>
-        <ColumnChart
-          data={lowData}
-          messages={{ empty: 'No data' }}
-          prefix="$"
-          decimal="."
-        />
-        <h1>Volume per business day over the last month</h1>
-        <AreaChart
-          prefix="$"
-          thousands=","
-          data={graphData}
-          messages={{ empty: 'No data' }}
-        />
-        <p>Chart only displays business days</p>
+        <section class="section has-text-centered">
+          <div class="container">
+            <h1 class="title">Volume per business day over the last week</h1>
+            <h2 class="subtitle">
+              <AreaChart
+                prefix="$"
+                thousands=","
+                data={graphData}
+                messages={{ empty: 'No data' }}
+              />
+            </h2>
+          </div>
+        </section>
+        <section class="section has-text-centered">
+          <div class="container">
+            <h1 class="title">Closing price over the last week</h1>
+            <h2 class="subtitle">
+              <ColumnChart
+                data={closeData}
+                messages={{ empty: 'No data' }}
+                prefix="$"
+                thousands=","
+              />
+            </h2>
+          </div>
+        </section>
+        <section class="section has-text-centered">
+          <div class="container">
+            <h1 class="title">Percent change over the last week</h1>
+            <h2 class="subtitle">
+              <BarChart
+                data={percentData}
+                colors={['#b00', '#666']}
+                // legend={true}
+                suffix="%"
+                messages={{ empty: 'No data' }}
+              />
+            </h2>
+          </div>
+        </section>
+        <section class="section has-text-centered">
+          <div class="container">
+            <h1 class="title">High over the week</h1>
+            <h2 class="subtitle">
+              <LineChart
+                data={highData}
+                messages={{ empty: 'No data' }}
+                prefix="$"
+                decimal="."
+              />
+            </h2>
+          </div>
+        </section>
       </div>
     );
   }

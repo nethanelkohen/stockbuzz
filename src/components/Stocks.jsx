@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 class Stocks extends Component {
   render() {
     let stocks = this.props.data;
+    console.log(stocks);
     return (
       <div>
         <section className="section">
@@ -26,7 +27,10 @@ class Stocks extends Component {
                         <p className="subtitle">{key[1].quote.companyName}:</p>
                         <p className="subtitle">{key[1].quote.symbol}</p>
                         <p className="subtitle">
-                          Closing Price: ${key[1].quote.close.toFixed(2)}
+                          Opening Price: ${key[1].chart[22].open.toFixed(0)}
+                        </p>
+                        <p className="subtitle">
+                          Closing Price: ${key[1].chart[22].close.toFixed(0)}
                         </p>
                       </Link>
                     </div>
