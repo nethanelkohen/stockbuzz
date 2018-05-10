@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import '../App.css';
 import { Route } from 'react-router-dom';
-import { Bar } from 'britecharts-react';
-import ReactChartkick, { LineChart, PieChart } from 'react-chartkick';
+import ReactChartkick, { LineChart, PieChart, BarChart } from 'react-chartkick';
 import Chart from 'chart.js';
 
 ReactChartkick.addAdapter(Chart);
@@ -27,8 +26,10 @@ class Stocks extends Component {
         let array = [];
         let newKey = key[1].chart.slice(-7);
         for (let i = 0; i < newKey.length; i++) {
+          // let vol = `${(newKey[i].volume / 1000).toFixed(1)}M`;
           let vol = newKey[i].volume;
           let date = newKey[i].label;
+
           let volData = {
             [date]: vol
           };
@@ -44,9 +45,11 @@ class Stocks extends Component {
     let stocks = this.props.data;
     let match = this.props.match;
     let graphData = this.state.indStock;
-    // console.log('graphData', graphData);
-    console.log(stocks);
-
+    console.log('graphData', graphData);
+    // function kFormatter(num) {
+    //   return num > 9999 ? (num / 10000).toFixed(1) + 'M' : num;
+    // }
+    // kFormatter(graphData.vol);
     return (
       <div>
         {Object.entries(stocks).map((key, index) => {
@@ -59,7 +62,13 @@ class Stocks extends Component {
             );
           }
         })}
-        <LineChart data={graphData} />
+        <h1>Volume per business day</h1>
+        <LineChart
+          prefix="$"
+          thousands=","
+          data={graphData}
+          messages={{ empty: 'No data' }}
+        />
         <p>Chart only displays business days</p>
         {/* {this.state.indStock ? <LineChart data={graphData} /> : null} */}
       </div>
