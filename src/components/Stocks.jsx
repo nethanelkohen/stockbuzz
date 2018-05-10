@@ -4,13 +4,8 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 
 class Stocks extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let stocks = this.props.data;
-    console.log(this.props);
     return (
       <div>
         <section className="section">

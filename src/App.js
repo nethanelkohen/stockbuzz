@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Stocks from './components/Stocks';
 import IndStock from './components/Indstock';
 import './App.css';
 import 'bulma/css/bulma.css';
 import Spinner from 'react-spinkit';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {

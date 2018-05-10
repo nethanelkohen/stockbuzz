@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import '../App.css';
-import { Route } from 'react-router-dom';
 import ReactChartkick, {
-  ScatterChart,
   BarChart,
-  ColumnChart,
   AreaChart,
   LineChart
 } from 'react-chartkick';
@@ -19,7 +16,7 @@ class Stocks extends Component {
     this.state = {
       changePercent: {},
       volumeData: {},
-      marketData: {},
+      highData: {},
       closeData: {}
     };
   }
@@ -36,26 +33,31 @@ class Stocks extends Component {
         this.renderPercent(newKey);
         this.renderVolume(newKey);
         this.renderClose(newKey);
-        // this.renderHigh(newKey);
+        this.renderHigh(newKey);
       }
+      return key;
     });
   }
 
-  // renderHigh = newKey => {
-  //   let volumeArray = [];
-  //   for (let i = 0; i < newKey.length; i++) {
-  //     const vol = newKey[i].volume;
-  //     const date = newKey[i].label;
-  //     const volData = {
-  //       [date]: vol
-  //     };
-  //     volumeArray.push(volData);
-  //     let volumeObj = Object.assign({}, ...volumeArray);
-  //     this.setState({
-  //       volumeData: volumeObj
-  //     });
-  //   }
-  // };
+  renderHigh = newKey => {
+    let highArray = [];
+    for (let i = 0; i < newKey.length; i++) {
+      const high = newKey[i].high;
+      const date = newKey[i].label;
+      const low = newKey[i].low;
+      const highData = {
+        [date]: high
+      };
+      const lowData = {
+        [date]: low
+      };
+      highArray.push(highData, lowData);
+      let highObj = Object.assign({}, ...highArray);
+      this.setState({
+        highData: highObj
+      });
+    }
+  };
 
   renderClose = newKey => {
     let closeArray = [];
@@ -112,6 +114,7 @@ class Stocks extends Component {
     let graphData = this.state.volumeData;
     let percentData = this.state.changePercent;
     let closeData = this.state.closeData;
+    let highData = this.state.highData;
 
     return (
       <div>
@@ -124,6 +127,7 @@ class Stocks extends Component {
               </div>
             );
           }
+          return null;
         })}
         <h1>Closing price over the last month</h1>
         <LineChart
@@ -139,6 +143,13 @@ class Stocks extends Component {
           // legend={true}
           suffix="%"
           messages={{ empty: 'No data' }}
+        />
+        <h1>high Low over the week</h1>
+        <LineChart
+          data={highData}
+          messages={{ empty: 'No data' }}
+          prefix="$"
+          thousands=","
         />
         <h1>Volume per business day over the last month</h1>
         <AreaChart
