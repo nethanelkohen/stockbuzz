@@ -4,7 +4,8 @@ import '../App.css';
 import ReactChartkick, {
   BarChart,
   AreaChart,
-  LineChart
+  LineChart,
+  ColumnChart
 } from 'react-chartkick';
 import Chart from 'chart.js';
 
@@ -17,7 +18,8 @@ class Stocks extends Component {
       changePercent: {},
       volumeData: {},
       highData: {},
-      closeData: {}
+      closeData: {},
+      lowData: {}
     };
   }
 
@@ -29,32 +31,63 @@ class Stocks extends Component {
       console.log(key);
       if (match.params.id === key[0]) {
         let newKey = key[1].chart;
-
         this.renderPercent(newKey);
         this.renderVolume(newKey);
         this.renderClose(newKey);
         this.renderHigh(newKey);
+        this.renderLow(newKey);
       }
       return key;
     });
   }
 
   renderHigh = newKey => {
+    const sevenDay = newKey.slice(-7);
+
     let highArray = [];
-    for (let i = 0; i < newKey.length; i++) {
-      const high = newKey[i].high;
-      const date = newKey[i].label;
-      const low = newKey[i].low;
+    // let lowArray = [];
+    for (let i = 0; i < sevenDay.length; i++) {
+      const high = sevenDay[i].high.toFixed(2);
+      const date = sevenDay[i].label;
+      // const low = newKey[i].low;
       const highData = {
         [date]: high
       };
+      // const lowData = {
+      //   [date]: low
+      // };
+      highArray.push(highData);
+      // lowArray.push(lowData);
+      let highObj = Object.assign({}, ...highArray);
+      // // let lowObj = Object.assign({}, ...lowArray);
+      // console.log(highLowObj);
+      this.setState({
+        highData: highObj
+      });
+    }
+  };
+
+  renderLow = newKey => {
+    const sevenDay = newKey.slice(-7);
+    let lowArray = [];
+    // let lowArray = [];
+    for (let i = 0; i < sevenDay.length; i++) {
+      const low = sevenDay[i].low.toFixed(2);
+      const date = sevenDay[i].label;
+      // const low = newKey[i].low;
       const lowData = {
         [date]: low
       };
-      highArray.push(highData, lowData);
-      let highObj = Object.assign({}, ...highArray);
+      // const lowData = {
+      //   [date]: low
+      // };
+      lowArray.push(lowData);
+      // lowArray.push(lowData);
+      let lowObj = Object.assign({}, ...lowArray);
+      // // let lowObj = Object.assign({}, ...lowArray);
+      // console.log(highLowObj);
       this.setState({
-        highData: highObj
+        lowData: lowObj
       });
     }
   };
@@ -115,6 +148,7 @@ class Stocks extends Component {
     let percentData = this.state.changePercent;
     let closeData = this.state.closeData;
     let highData = this.state.highData;
+    let lowData = this.state.lowData;
 
     return (
       <div>
@@ -144,12 +178,19 @@ class Stocks extends Component {
           suffix="%"
           messages={{ empty: 'No data' }}
         />
-        <h1>high Low over the week</h1>
-        <LineChart
+        <h1>High over the week</h1>
+        <ColumnChart
           data={highData}
           messages={{ empty: 'No data' }}
           prefix="$"
-          thousands=","
+          decimal="."
+        />
+        <h1> Low over the week</h1>
+        <ColumnChart
+          data={lowData}
+          messages={{ empty: 'No data' }}
+          prefix="$"
+          decimal="."
         />
         <h1>Volume per business day over the last month</h1>
         <AreaChart

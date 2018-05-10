@@ -15,13 +15,19 @@ class Stocks extends Component {
               <div className="tile is-12">
                 {Object.entries(stocks).map((key, index) => {
                   return (
-                    <div className="tile is-parent" key={index}>
+                    <div
+                      className="tile is-parent has-text-centered"
+                      key={index}
+                    >
                       <Link
                         to={`/indepth/${key[1].quote.symbol}`}
                         className="tile is-child notification is-info box"
                       >
                         <p className="subtitle">{key[1].quote.companyName}:</p>
                         <p className="subtitle">{key[1].quote.symbol}</p>
+                        <p className="subtitle">
+                          Closing Price: ${key[1].quote.close.toFixed(2)}
+                        </p>
                       </Link>
                     </div>
                   );
