@@ -23,9 +23,9 @@ $ npm install && npm start
 <img src="src/assets/IEX-Logo.png" align="center" width="150" height="auto" />
 
 * [IEX](https://iextrading.com/developer/) is a reliable, enterprise API which provides real-time stock market data.
+  <br><br>
 
 <img src="src/assets/bulma-logo.png" align="center" width="150" height="auto" />
-<br><br>
 
 * [Bulma](https://bulma.io/) is an open source CSS framework based on Flexbox and used by more than 100,000 developers.
 
