@@ -2,7 +2,7 @@
 
 <img src="src/assets/lightning.png" align="right" alt="stockbuzz Logo" overflow="hidden" />
 
-# stockbuzz
+# [stockbuzz](https://stockbuzz.herokuapp.com/)
 
 A simple dashboard that displays and visualizes stock market data.
 
@@ -25,7 +25,6 @@ $ npm install && npm start
 ## Technology Used
 
 <img src="src/assets/IEX-Logo.png" align="center" width="150" height="auto" />
-  <br><br>
 
 * [IEX](https://iextrading.com/developer/) is a reliable, enterprise API which provides real-time stock market data.
   <br><br>
