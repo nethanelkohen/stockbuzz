@@ -25,7 +25,7 @@ $ npm install && npm start
 * [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
   <br>
 
-<img src="src/assets/IEX-Logo.png" align="center" width="150" height="auto" />
+<img src="src/assets/IEX-Logo.png" align="center" width="125" height="auto" />
 
 * [IEX](https://iextrading.com/developer/) is a reliable, enterprise API which provides real-time stock market data.
   <br>
