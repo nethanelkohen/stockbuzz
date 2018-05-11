@@ -42,5 +42,9 @@ body {
 }
 
 .subtitle strong {
-  color: white;
+  color: whitesmoke;
+}
+
+.footer {
+  background-color: #f3d2d2;
 }

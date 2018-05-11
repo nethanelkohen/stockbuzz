@@ -11,7 +11,7 @@ class Header extends Component {
           <div className="container has-text-centered">
             <img src={logo} alt="Logo" />
             <Link to={'/'}>
-              <h1 className="title has-text-white">stockbuzz</h1>
+              <h1 className="title">stockbuzz</h1>
             </Link>
 
             <img src={logo} alt="Logo" />

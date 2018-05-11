@@ -14,7 +14,7 @@ class Stocks extends Component {
         <section className="section">
           <div className="container">
             <h1 className="title has-text-centered">Daily Roundup:</h1>
-            <div className="tile is-ancestor ">
+            <div className="tile is-ancestor">
               <div className="tile is-12">
                 {Object.entries(stocks).map((key, index) => {
                   return (
@@ -24,7 +24,7 @@ class Stocks extends Component {
                     >
                       <Link
                         to={`/indepth/${key[1].quote.symbol}`}
-                        className="tile is-child notification is-info box"
+                        className="tile is-child notification is-dark is-bold box"
                       >
                         <p className="subtitle ">
                           <strong>{key[1].quote.symbol}</strong>

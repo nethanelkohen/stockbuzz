@@ -123,7 +123,7 @@ class Stocks extends Component {
               <div key={index}>
                 <section className="hero">
                   <div className="hero-body">
-                    <div className="container ">
+                    <div clasame="container ">
                       <h1 className="title">{key[1].quote.companyName}</h1>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ class Stocks extends Component {
         </section>
         <section class="section ">
           <div class="container">
-            <h1 class="title">Closing Price </h1>
+            <h1 class="title">Closing Price</h1>
             <h2 class="subtitle">
               <ColumnChart
                 data={closeData}
@@ -165,7 +165,7 @@ class Stocks extends Component {
         </section>
         <section class="section ">
           <div class="container">
-            <h1 class="title">Percent Change</h1>
+            <h1 class="title">Percentage Change</h1>
             <h2 class="subtitle">
               <BarChart
                 data={percentData}
