@@ -42,6 +42,12 @@ class Stocks extends Component {
                             Closing Price: ${key[1].chart[22].close.toFixed(0)}
                           </strong>
                         </p>
+                        <p className="subtitle">
+                          <strong>
+                            Percentage Change:{' '}
+                            {key[1].chart[22].changePercent.toFixed(2)}%
+                          </strong>
+                        </p>
                       </Link>
                     </div>
                   );

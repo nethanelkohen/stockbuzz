@@ -169,7 +169,7 @@ class Stocks extends Component {
           }
           return null;
         })}
-        <section class="section has-text-centered">
+        <section class="section ">
           <div class="container">
             <h1 class="title">Volume</h1>
             <h2 class="subtitle">
@@ -184,7 +184,7 @@ class Stocks extends Component {
             </h2>
           </div>
         </section>
-        <section class="section has-text-centered">
+        <section class="section ">
           <div class="container">
             <h1 class="title">Closing Price </h1>
             <h2 class="subtitle">
@@ -199,7 +199,7 @@ class Stocks extends Component {
             </h2>
           </div>
         </section>
-        <section class="section has-text-centered">
+        <section class="section ">
           <div class="container">
             <h1 class="title">Percent Change</h1>
             <h2 class="subtitle">
@@ -213,7 +213,7 @@ class Stocks extends Component {
             </h2>
           </div>
         </section>
-        <section class="section has-text-centered">
+        <section class="section ">
           <div class="container">
             <h1 class="title">High Price</h1>
             <h2 class="subtitle">
