@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import 'bulma/css/bulma.css';
-import '../App.css';
+import { Link } from 'react-router-dom';
 import ReactChartkick, {
   BarChart,
   AreaChart,
@@ -9,6 +8,8 @@ import ReactChartkick, {
 } from 'react-chartkick';
 import Chart from 'chart.js';
 import Footer from './Footer';
+import 'bulma/css/bulma.css';
+import '../App.css';
 
 ReactChartkick.addAdapter(Chart);
 
@@ -193,8 +194,14 @@ class Stocks extends Component {
                 colors={['#4a4a4a', '#4a4a4a']}
               />
             </h2>
+            <div className="home">
+              <Link to={`/`}>
+                <p className="button is-dark is-medium">Back</p>
+              </Link>
+            </div>
           </div>
         </section>
+        <div />
         <Footer />
       </div>
     );

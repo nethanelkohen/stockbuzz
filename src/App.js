@@ -24,6 +24,10 @@ class App extends Component {
       .then(data => {
         this.setState({ stockName: data, loading: false });
       });
+    window.scrollTo({
+      top: 280,
+      behavior: 'smooth'
+    });
   }
 
   render() {
