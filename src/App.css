@@ -5,6 +5,7 @@ html {
 body {
   background-color: #f3d2d2;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 .hero {

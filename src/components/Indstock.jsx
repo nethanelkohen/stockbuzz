@@ -37,6 +37,11 @@ class Stocks extends Component {
       }
       return key;
     });
+
+    window.scrollTo({
+      top: 280,
+      behavior: 'smooth'
+    });
   }
 
   renderHigh = newKey => {
