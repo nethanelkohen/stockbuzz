@@ -28,7 +28,6 @@ class Stocks extends Component {
     let match = this.props.match;
     let entries = Object.entries(stocks);
     entries.map(key => {
-      console.log(key);
       if (match.params.id === key[0]) {
         let newKey = key[1].chart.slice(-7);
         this.renderPercent(newKey);
@@ -123,7 +122,7 @@ class Stocks extends Component {
               <div key={index}>
                 <section className="hero">
                   <div className="hero-body">
-                    <div clasame="container ">
+                    <div className="container ">
                       <h1 className="title">{key[1].quote.companyName}</h1>
                     </div>
                   </div>
@@ -133,10 +132,10 @@ class Stocks extends Component {
           }
           return null;
         })}
-        <section class="section ">
-          <div class="container">
-            <h1 class="title">Volume</h1>
-            <h2 class="subtitle">
+        <section className="section ">
+          <div className="container">
+            <h1 className="title">Volume</h1>
+            <h2 className="subtitle">
               <AreaChart
                 prefix="$"
                 thousands=","
@@ -148,10 +147,10 @@ class Stocks extends Component {
             </h2>
           </div>
         </section>
-        <section class="section ">
-          <div class="container">
-            <h1 class="title">Closing Price</h1>
-            <h2 class="subtitle">
+        <section className="section ">
+          <div className="container">
+            <h1 className="title">Closing Price</h1>
+            <h2 className="subtitle">
               <ColumnChart
                 data={closeData}
                 messages={{ empty: 'No data' }}
@@ -163,10 +162,10 @@ class Stocks extends Component {
             </h2>
           </div>
         </section>
-        <section class="section ">
-          <div class="container">
-            <h1 class="title">Percentage Change</h1>
-            <h2 class="subtitle">
+        <section className="section ">
+          <div className="container">
+            <h1 className="title">Percentage Change</h1>
+            <h2 className="subtitle">
               <BarChart
                 data={percentData}
                 suffix="%"
@@ -177,10 +176,10 @@ class Stocks extends Component {
             </h2>
           </div>
         </section>
-        <section class="section ">
-          <div class="container">
-            <h1 class="title">High</h1>
-            <h2 class="subtitle">
+        <section className="section ">
+          <div className="container">
+            <h1 className="title">High</h1>
+            <h2 className="subtitle">
               <LineChart
                 data={highData}
                 messages={{ empty: 'No data' }}
