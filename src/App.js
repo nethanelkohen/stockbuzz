@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Stocks from './components/Stocks';
 import IndStock from './components/Indstock';
 import './App.css';

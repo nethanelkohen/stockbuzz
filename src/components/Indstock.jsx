@@ -19,8 +19,7 @@ class Stocks extends Component {
       changePercent: {},
       volumeData: {},
       highData: {},
-      closeData: {},
-      lowData: {}
+      closeData: {}
     };
   }
 
@@ -36,7 +35,6 @@ class Stocks extends Component {
         this.renderVolume(newKey);
         this.renderClose(newKey);
         this.renderHigh(newKey);
-        this.renderLow(newKey);
       }
       return key;
     });
@@ -52,40 +50,10 @@ class Stocks extends Component {
       const highData = {
         [date]: high
       };
-      // const lowData = {
-      //   [date]: low
-      // };
       highArray.push(highData);
-      // lowArray.push(lowData);
       let highObj = Object.assign({}, ...highArray);
-      // // let lowObj = Object.assign({}, ...lowArray);
-      // console.log(highLowObj);
       this.setState({
         highData: highObj
-      });
-    }
-  };
-
-  renderLow = newKey => {
-    let lowArray = [];
-    // let lowArray = [];
-    for (let i = 0; i < newKey.length; i++) {
-      const low = newKey[i].low.toFixed(2);
-      const date = newKey[i].label;
-      // const low = newKey[i].low;
-      const lowData = {
-        [date]: low
-      };
-      // const lowData = {
-      //   [date]: low
-      // };
-      lowArray.push(lowData);
-      // lowArray.push(lowData);
-      let lowObj = Object.assign({}, ...lowArray);
-      // // let lowObj = Object.assign({}, ...lowArray);
-      // console.log(highLowObj);
-      this.setState({
-        lowData: lowObj
       });
     }
   };
@@ -146,7 +114,6 @@ class Stocks extends Component {
     let percentData = this.state.changePercent;
     let closeData = this.state.closeData;
     let highData = this.state.highData;
-    let lowData = this.state.lowData;
 
     return (
       <div>
@@ -215,7 +182,7 @@ class Stocks extends Component {
         </section>
         <section class="section ">
           <div class="container">
-            <h1 class="title">High Price</h1>
+            <h1 class="title">High</h1>
             <h2 class="subtitle">
               <LineChart
                 data={highData}
