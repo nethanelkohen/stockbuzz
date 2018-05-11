@@ -24,10 +24,11 @@ $ npm install && npm start
 
 ## Technology Used
 
-<img src="src/assets/IEX-logo.png" align="center" width="150" height="auto" />
+<img src="src/assets/IEX-Logo.png" align="center" width="150" height="auto" />
   <br><br>
 
 * [IEX](https://iextrading.com/developer/) is a reliable, enterprise API which provides real-time stock market data.
+  <br><br>
 
 <img src="src/assets/bulma-logo.png" align="center" width="150" height="auto" /> <br><br>
 
