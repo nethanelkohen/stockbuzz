@@ -1,3 +1,12 @@
+html {
+  /* background-color: #f3d2d2; */
+  /* min-height: 100%; */
+}
+body {
+  background-color: #f3d2d2;
+  height: 100%;
+}
+
 .hero {
   padding-top: 2%;
 }
@@ -24,4 +33,14 @@
 .spinner {
   left: 50% !important;
   top: 100px !important;
+}
+
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+  min-width: 30%;
+}
+
+.subtitle strong {
+  color: white;
 }

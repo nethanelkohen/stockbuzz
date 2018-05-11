@@ -13,8 +13,8 @@ class Stocks extends Component {
       <div>
         <section className="section">
           <div className="container">
-            <h1 className="title has-text-centered">Your Stocks:</h1>
-            <div className="tile is-ancestor">
+            <h1 className="title has-text-centered">Daily Roundup:</h1>
+            <div className="tile is-ancestor ">
               <div className="tile is-12">
                 {Object.entries(stocks).map((key, index) => {
                   return (
@@ -26,13 +26,21 @@ class Stocks extends Component {
                         to={`/indepth/${key[1].quote.symbol}`}
                         className="tile is-child notification is-info box"
                       >
-                        <p className="subtitle">{key[1].quote.companyName}:</p>
-                        <p className="subtitle">{key[1].quote.symbol}</p>
+                        <p className="subtitle ">
+                          <strong>{key[1].quote.symbol}</strong>
+                        </p>
+                        {/* <p className="subtitle">
+                          <strong>{key[1].quote.companyName}</strong>
+                        </p> */}
                         <p className="subtitle">
-                          Opening Price: ${key[1].chart[22].open.toFixed(0)}
+                          <strong>
+                            Opening Price: ${key[1].chart[22].open.toFixed(0)}
+                          </strong>
                         </p>
                         <p className="subtitle">
-                          Closing Price: ${key[1].chart[22].close.toFixed(0)}
+                          <strong>
+                            Closing Price: ${key[1].chart[22].close.toFixed(0)}
+                          </strong>
                         </p>
                       </Link>
                     </div>

@@ -179,6 +179,7 @@ class Stocks extends Component {
                 data={graphData}
                 messages={{ empty: 'No data' }}
                 label="Volume"
+                colors={['#4a4a4a']}
               />
             </h2>
           </div>
@@ -193,6 +194,7 @@ class Stocks extends Component {
                 prefix="$"
                 thousands=","
                 label="Price"
+                colors={['#4a4a4a', '#4a4a4a']}
               />
             </h2>
           </div>
@@ -206,6 +208,7 @@ class Stocks extends Component {
                 suffix="%"
                 messages={{ empty: 'No data' }}
                 label="Percent Change"
+                colors={['#4a4a4a', '#4a4a4a']}
               />
             </h2>
           </div>
@@ -219,6 +222,7 @@ class Stocks extends Component {
                 messages={{ empty: 'No data' }}
                 prefix="$"
                 label="Price"
+                colors={['#4a4a4a', '#4a4a4a']}
               />
             </h2>
           </div>
