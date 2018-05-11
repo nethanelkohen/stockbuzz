@@ -125,9 +125,6 @@ class Stocks extends Component {
                   <div className="hero-body">
                     <div className="container ">
                       <h1 className="title">{key[1].quote.companyName}</h1>
-                      <h2 className="subtitle">
-                        Closing Price: {key[1].quote.close}
-                      </h2>
                     </div>
                   </div>
                 </section>
