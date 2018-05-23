@@ -1,4 +1,4 @@
-[![GitHub top language](https://img.shields.io/github/languages/top/nethanelkohen/agency-within-dev-test.svg?colorB=EFDF70&style=plastic)](https://github.com/nethanelkohen/agency-within-dev-test)
+[![GitHub top language](https://img.shields.io/github/languages/top/nethanelkohen/stockbuzz.svg?colorB=EFDF70&style=plastic)](https://github.com/nethanelkohen/stockbuzz)
 
 <img src="src/assets/lightning.png" align="right" alt="stockbuzz Logo" overflow="hidden" />
 
@@ -13,7 +13,7 @@ Built by [Nethanel Kohen](https://github.com/nethanelkohen).
 ## Getting Started
 
 ```bash
-$ git clone https://github.com/nethanelkohen/agency-within-dev-test
+$ git clone https://github.com/nethanelkohen/stockbuzz
 $ cd stock-buzz
 $ npm install && npm start
 ```
