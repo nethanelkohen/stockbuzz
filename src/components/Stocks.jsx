@@ -9,7 +9,7 @@ class Stocks extends Component {
   }
 
   render() {
-    let data = this.props.data;
+    let { stocks } = this.props;
     return (
       <div>
         <section className="section">
@@ -17,7 +17,7 @@ class Stocks extends Component {
             <h1 className="title has-text-centered">Daily Roundup:</h1>
             <div className="tile is-ancestor">
               <div className="tile is-12">
-                {Object.entries(data).map((key, index) => {
+                {Object.entries(stocks).map((key, index) => {
                   let length = key[1].chart.slice(-1);
                   return (
                     <div
@@ -28,7 +28,7 @@ class Stocks extends Component {
                         to={`/indepth/${key[1].quote.symbol}`}
                         className="tile is-child notification is-dark is-bold box"
                       >
-                        <p className="subtitle ">
+                        <p className="subtitle">
                           <strong>{key[1].quote.symbol}</strong>
                         </p>
                         <p className="subtitle">

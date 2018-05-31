@@ -24,16 +24,15 @@ class Stocks extends Component {
   }
 
   componentDidMount() {
-    let stocks = this.props.data;
-    let match = this.props.match;
+    let { stocks, match } = this.props;
     let entries = Object.entries(stocks);
     entries.map(key => {
       if (match.params.id === key[0]) {
         let newKey = key[1].chart.slice(-7);
-        this.renderPercent(newKey);
-        this.renderVolume(newKey);
-        this.renderClose(newKey);
         this.renderHigh(newKey);
+        this.renderClose(newKey);
+        this.renderVolume(newKey);
+        this.renderPercent(newKey);
       }
       return key;
     });
@@ -95,11 +94,10 @@ class Stocks extends Component {
   };
 
   renderPercent = newKey => {
-    const sevenDay = newKey;
     let percentArray = [];
-    for (let i = 0; i < sevenDay.length; i++) {
-      const percentChange = sevenDay[i].changePercent.toFixed(2);
-      const date = sevenDay[i].label;
+    for (let i = 0; i < newKey.length; i++) {
+      const percentChange = newKey[i].changePercent;
+      const date = newKey[i].label;
       const percentData = {
         [date]: percentChange
       };
@@ -112,12 +110,9 @@ class Stocks extends Component {
   };
 
   render() {
-    let stocks = this.props.data;
-    let match = this.props.match;
-    let graphData = this.state.volumeData;
-    let percentData = this.state.changePercent;
-    let closeData = this.state.closeData;
-    let highData = this.state.highData;
+    let { stocks, match } = this.props;
+    let { volumeData, changePercent, closeData, highData } = this.state;
+    console.log(highData);
 
     return (
       <div>
@@ -144,7 +139,7 @@ class Stocks extends Component {
               <AreaChart
                 prefix="$"
                 thousands=","
-                data={graphData}
+                data={volumeData}
                 messages={{ empty: 'No data' }}
                 label="Volume"
                 colors={['#4a4a4a']}
@@ -172,7 +167,7 @@ class Stocks extends Component {
             <h1 className="title">Percentage Change</h1>
             <h2 className="subtitle">
               <BarChart
-                data={percentData}
+                data={changePercent}
                 suffix="%"
                 messages={{ empty: 'No data' }}
                 label="Percent Change"

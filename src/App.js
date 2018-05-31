@@ -12,7 +12,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      stockName: [],
+      stocks: [],
       loading: true
     };
   }
@@ -22,9 +22,10 @@ class App extends Component {
       'https://api.iextrading.com/1.0/stock/market/batch?symbols=baba,googl,amzn,ebay,nvda&types=quote,chart&range=1m'
     )
       .then(response => response.json())
-      .then(data => {
-        this.setState({ stockName: data, loading: false });
+      .then(res => {
+        this.setState({ stocks: res, loading: false });
       });
+
     window.scrollTo({
       top: 280,
       behavior: 'smooth'
@@ -32,23 +33,23 @@ class App extends Component {
   }
 
   render() {
-    const stock = this.state.stockName;
+    const { stocks, loading } = this.state;
     return (
       <div>
         <Header />
-        {this.state.loading ? (
+        {loading ? (
           <Spinner className="spinner" name="ball-spin-fade-loader" />
         ) : null}
         <Switch>
           <Route
             exact
             path="/"
-            render={props => <Stocks {...props} data={stock} />}
+            render={props => <Stocks {...props} stocks={stocks} />}
           />
           <Route
             exact
             path="/indepth/:id"
-            render={props => <IndStock {...props} data={stock} />}
+            render={props => <IndStock {...props} stocks={stocks} />}
           />
         </Switch>
         <Footer />
