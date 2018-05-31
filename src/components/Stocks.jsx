@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
 import { Link } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '../App.css';
@@ -57,7 +56,6 @@ class Stocks extends Component {
             </div>
           </div>
         </section>
-        <Footer />
       </div>
     );
   }

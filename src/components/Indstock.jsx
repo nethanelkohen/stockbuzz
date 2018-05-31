@@ -7,7 +7,6 @@ import ReactChartkick, {
   ColumnChart
 } from 'react-chartkick';
 import Chart from 'chart.js';
-import Footer from './Footer';
 import 'bulma/css/bulma.css';
 import '../App.css';
 
@@ -202,7 +201,6 @@ class Stocks extends Component {
           </div>
         </section>
         <div />
-        <Footer />
       </div>
     );
   }

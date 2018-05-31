@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Stocks from './components/Stocks';
 import IndStock from './components/Indstock';
 import './App.css';
@@ -35,22 +36,22 @@ class App extends Component {
     return (
       <div>
         <Header />
+        {this.state.loading ? (
+          <Spinner className="spinner" name="ball-spin-fade-loader" />
+        ) : null}
         <Switch>
-          {this.state.loading ? (
-            <Spinner className="spinner" name="ball-spin-fade-loader" />
-          ) : (
-            <Route
-              exact
-              path="/"
-              render={props => <Stocks {...props} data={stock} />}
-            />
-          )}
+          <Route
+            exact
+            path="/"
+            render={props => <Stocks {...props} data={stock} />}
+          />
           <Route
             exact
             path="/indepth/:id"
             render={props => <IndStock {...props} data={stock} />}
           />
         </Switch>
+        <Footer />
       </div>
     );
   }
