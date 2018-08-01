@@ -56,21 +56,25 @@ class App extends Component {
     return (
       <div>
         <Header />
-        {loading ? (
-          <Spinner className="spinner" name="ball-spin-fade-loader" />
-        ) : null}
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <Stocks
-                {...props}
-                handlerFromParent={this.handleData}
-                stocks={stocks}
-              />
-            )}
-          />
+          {loading ? (
+            <div className="space">
+              <Spinner className="spinner" name="ball-spin-fade-loader" />
+            </div>
+          ) : (
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <Stocks
+                  {...props}
+                  handlerFromParent={this.handleData}
+                  stocks={stocks}
+                />
+              )}
+            />
+          )}
+
           <Route
             exact
             path="/indepth/:id"
