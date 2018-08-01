@@ -17,41 +17,43 @@ class Stocks extends Component {
             <h1 className="title has-text-centered">Daily Roundup:</h1>
             <div className="tile is-ancestor">
               <div className="tile is-12">
-                {Object.entries(stocks).map((key, index) => {
-                  let length = key[1].chart.slice(-1);
-                  return (
-                    <div
-                      className="tile is-parent has-text-centered"
-                      key={index}
-                    >
-                      <Link
-                        to={`/indepth/${key[1].quote.symbol}`}
-                        className="tile is-child notification is-dark is-bold box"
+                <div class="tile is-parent ">
+                  {Object.entries(stocks).map((key, index) => {
+                    let length = key[1].chart.slice(-1);
+                    return (
+                      <div
+                        className="tile is-parent has-text-centered"
+                        key={index}
                       >
-                        <p className="subtitle">
-                          <strong>{key[1].quote.symbol}</strong>
-                        </p>
-                        <p className="subtitle">
-                          <strong>
-                            Opening Price: ${length[0].open.toFixed(2)}
-                          </strong>
-                        </p>
-                        <p className="subtitle">
-                          <strong>
-                            Closing Price: ${length[0].close.toFixed(2)}
-                          </strong>
-                        </p>
-                        <p className="subtitle">
-                          <strong>
-                            Percentage Change:
-                            <br />
-                            {length[0].changePercent.toFixed(2)}%
-                          </strong>
-                        </p>
-                      </Link>
-                    </div>
-                  );
-                })}
+                        <Link
+                          to={`/indepth/${key[1].quote.symbol}`}
+                          className="tile is-child notification is-dark is-bold box"
+                        >
+                          <p className="subtitle">
+                            <strong>{key[1].quote.symbol}</strong>
+                          </p>
+                          <p className="subtitle">
+                            <strong>
+                              Opening Price: ${length[0].open.toFixed(2)}
+                            </strong>
+                          </p>
+                          <p className="subtitle">
+                            <strong>
+                              Closing Price: ${length[0].close.toFixed(2)}
+                            </strong>
+                          </p>
+                          <p className="subtitle">
+                            <strong>
+                              Percentage Change:
+                              <br />
+                              {length[0].changePercent.toFixed(2)}%
+                            </strong>
+                          </p>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
