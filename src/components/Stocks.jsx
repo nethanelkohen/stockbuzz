@@ -4,14 +4,43 @@ import 'bulma/css/bulma.css';
 import '../App.css';
 
 class Stocks extends Component {
+  state = {
+    inputField: ''
+  };
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+
+  submitHandler = evt => {
+    evt.preventDefault();
+    this.props.handlerFromParent(this.state.inputField);
+    this.setState({
+      inputField: ''
+    });
+  };
+
+  handleChange = event => {
+    this.setState({
+      inputField: event.target.value
+    });
+  };
 
   render() {
     let { stocks } = this.props;
     return (
       <div>
+        <div className="input-top">
+          <form onSubmit={this.submitHandler}>
+            <input
+              className="input is-rounded"
+              type="text"
+              value={this.state.inputField}
+              onChange={this.handleChange}
+              placeholder="Enter a stock e.g. AAPL"
+            />
+          </form>
+        </div>
         <section className="section">
           <div className="container">
             <h1 className="title has-text-centered">Daily Roundup:</h1>

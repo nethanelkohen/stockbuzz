@@ -13,15 +13,14 @@ class App extends Component {
     super();
     this.state = {
       stocks: [],
-      choice: '',
+      inputFromChild: '',
       loading: true
     };
   }
 
   componentDidMount() {
-    let { choice } = this.state;
     fetch(
-      `https://api.iextrading.com/1.0/stock/market/batch?symbols=baba,googl,amzn,ebay,nvda,${choice}&types=quote,chart&range=1m`
+      `https://api.iextrading.com/1.0/stock/market/batch?symbols=baba,googl,amzn,ebay,nvda&types=quote,chart&range=1m`
     )
       .then(response => response.json())
       .then(res => {
@@ -34,51 +33,43 @@ class App extends Component {
     });
   }
 
-  updateInputValue(evt) {
-    this.setState({
-      choice: evt.target.value
-    });
-  }
-
   handleSubmit = () => {
-    let { choice } = this.state;
-
+    let { inputFromChild } = this.state;
     fetch(
-      `https://api.iextrading.com/1.0/stock/market/batch?symbols=baba,googl,amzn,ebay,nvda,${choice}&types=quote,chart&range=1m`
+      `https://api.iextrading.com/1.0/stock/market/batch?symbols=${inputFromChild},baba,googl,amzn,ebay,nvda&types=quote,chart&range=1m`
     )
       .then(response => response.json())
       .then(res => {
-        this.setState({ stocks: res, loading: false, choice: '' });
+        this.setState({ stocks: res, loading: false });
       });
   };
 
-  handleKeyPress = e => {
-    if (e.key === 'Enter') {
-      this.handleSubmit();
-    }
+  handleData = async data => {
+    await this.setState({
+      inputFromChild: data
+    });
+    await this.handleSubmit();
   };
 
   render() {
-    const { stocks, loading, choice } = this.state;
+    const { stocks, loading } = this.state;
     return (
       <div>
         <Header />
         {loading ? (
           <Spinner className="spinner" name="ball-spin-fade-loader" />
         ) : null}
-        <input
-          value={choice}
-          className="input is-rounded"
-          type="text"
-          placeholder="Enter a stock e.g. AAPL"
-          onChange={evt => this.updateInputValue(evt)}
-          onKeyPress={this.handleKeyPress}
-        />
         <Switch>
           <Route
             exact
             path="/"
-            render={props => <Stocks {...props} stocks={stocks} />}
+            render={props => (
+              <Stocks
+                {...props}
+                handlerFromParent={this.handleData}
+                stocks={stocks}
+              />
+            )}
           />
           <Route
             exact
