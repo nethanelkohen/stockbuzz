@@ -67,8 +67,8 @@ class App extends Component {
           <Spinner className="spinner" name="ball-spin-fade-loader" />
         ) : null}
         <input
-          value={this.state.choice}
-          class="input is-rounded"
+          value={choice}
+          className="input is-rounded"
           type="text"
           placeholder="Enter a stock e.g. AAPL"
           onChange={evt => this.updateInputValue(evt)}

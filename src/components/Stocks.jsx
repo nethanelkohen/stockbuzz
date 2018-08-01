@@ -17,7 +17,7 @@ class Stocks extends Component {
             <h1 className="title has-text-centered">Daily Roundup:</h1>
             <div className="tile is-ancestor">
               <div className="tile is-12">
-                <div class="tile is-parent ">
+                <div className="tile is-parent ">
                   {Object.entries(stocks).map((key, index) => {
                     let length = key[1].chart.slice(-1);
                     return (
