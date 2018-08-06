@@ -14,7 +14,7 @@ Built by [Nethanel Kohen](https://github.com/nethanelkohen).
 
 ```bash
 $ git clone https://github.com/nethanelkohen/stockbuzz
-$ cd stock-buzz
+$ cd stockbuzz
 $ npm install && npm start
 ```
 
@@ -22,17 +22,17 @@ $ npm install && npm start
 
 <img src="src/assets/react.png" align="center" width="150" height="auto" />
 
-* [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+- [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
   <br>
 
 <img src="src/assets/IEX-Logo.png" align="center" width="125" height="auto" />
 
-* [IEX](https://iextrading.com/developer/) is a reliable, enterprise API which provides real-time stock market data.
+- [IEX](https://iextrading.com/developer/) is a reliable, enterprise API which provides real-time stock market data.
   <br>
 
 <img src="src/assets/bulma-logo.png" align="center" width="150" height="auto" />
 
-* [Bulma](https://bulma.io/) is an open source CSS framework based on Flexbox and used by more than 100,000 developers.
+- [Bulma](https://bulma.io/) is an open source CSS framework based on Flexbox and used by more than 100,000 developers.
   <br>
 
-- [react-chartkick](https://www.chartkick.com/react) is a library that creates beautiful JavaScript charts with one line of React.
+* [react-chartkick](https://www.chartkick.com/react) is a library that creates beautiful JavaScript charts with one line of React.
